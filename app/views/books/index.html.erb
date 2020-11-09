@@ -28,10 +28,5 @@
   </tbody>
 </table>
 
-<p>
-  <%= paginate @books %>
-</p>
-
-<p>
-  <%= link_to t('views.new_book'), new_book_path %>
-</p>
+<%= paginate @books %>
+<%= link_to t('views.new_book'), new_book_path %>
