@@ -30,5 +30,7 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= link_to "マイページ", mypage_path %>
   </body>
 </html>
