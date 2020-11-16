@@ -14,8 +14,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :postal %><br />
+    <%= f.text_field :postal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address%>
+  </div>
+
+  <div class="field">
     <%= f.label :profile %><br />
-    <%= f.text_area :profile, autofocus: true, autocomplete: "profile" %>
+    <%= f.text_area :profile %>
   </div>
 
   <div class="field">
