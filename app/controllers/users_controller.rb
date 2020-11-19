@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[mypage edit update]
   before_action :set_user, only: %i[show edit update]
 
+  def index
+    @users = User.all
+  end
+
   def mypage
     redirect_to user_path(current_user)
   end

@@ -63,3 +63,12 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  users:
+    show:
+      mypage: Mypage
+      userpage: userpage
+      username: username
+      email: email
+      postal: postal
+      address: address
+      introduction: introduction

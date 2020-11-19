@@ -1,8 +1,8 @@
-<h2>Log in</h2>
+<h2><%= t('.sign_in') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label t('users.show.username')%><br />
     <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
   </div>
   
@@ -24,7 +24,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit t('.sign_in') %>
   </div>
 <% end %>
 
