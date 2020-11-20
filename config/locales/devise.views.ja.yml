@@ -155,6 +155,7 @@ ja:
     index:
       top: トップページ
       user_list: ユーザー一覧
+      details: 詳細
   layouts:
     application:
       user_list: ユーザー一覧
