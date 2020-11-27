@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: %i[mypage edit update]
   before_action :set_user, only: %i[show edit update]
 
   def index
-    @users = User.all
+    @users = User.order(:created_at, :id).page(params[:page]).per(10)
   end
 
   def mypage
     redirect_to user_path(current_user)
   end
 
-  def show; end
+  def show;end
 
   def edit
     if @user == current_user
@@ -27,9 +26,9 @@ class UsersController < ApplicationController
     # アップデートがうまくいけば、マイページに戻利、
     # うまくいかなければ、もう一度編集ページを表示する
     if current_user.update(user_params)
-      redirect_to user_path(current_user)
+      user_path(current_user)
     else
-      redirect_to edit_user_path(current_user)
+      edit_user_path(current_user)
     end
   end
 
