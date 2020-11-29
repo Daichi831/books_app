@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def index
-    @users = User.order(:created_at, :id).page(params[:page]).per(10)
+    @users = User.order(:created_at, :id).page(params[:page])
   end
 
   def mypage
@@ -26,9 +26,9 @@ class UsersController < ApplicationController
     # アップデートがうまくいけば、マイページに戻利、
     # うまくいかなければ、もう一度編集ページを表示する
     if current_user.update(user_params)
-      user_path(current_user)
+      redirect_to user_path(current_user)
     else
-      edit_user_path(current_user)
+      render :edit
     end
   end
 
@@ -39,6 +39,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.fetch(:user, {}).permit(:username)
+    params.require(:user).permit(:username)
   end
 end

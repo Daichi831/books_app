@@ -3,10 +3,9 @@
 Rails.application.routes.draw do
   get '/mypage' => 'users#mypage'
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :users, only: %i[ edit update destroy]
   scope '(:locale)' do
     resources :books
-    resources :users
+    resources :users, only: %i[index edit update destroy]
   end
   root to: 'books#index'
 end
