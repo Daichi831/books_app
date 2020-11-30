@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   get '/mypage' => 'users#mypage'
+  get '/auth/:provider/callback' => 'sessions#create'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   scope '(:locale)' do
     resources :books
