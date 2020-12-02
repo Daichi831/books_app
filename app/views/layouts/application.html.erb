@@ -23,6 +23,15 @@
     </nav>
   </header>
   <body>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
+    <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+    <%= link_to t('users.show.mypage'), mypage_path %>
+    <%= link_to t('.user_list'), users_path %>
 </html>

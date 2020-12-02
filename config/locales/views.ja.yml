@@ -1,0 +1,21 @@
+ja:
+  users:
+    show:
+      mypage: マイページ
+      userpage: ユーザーページ
+      username: ユーザーネーム
+      email: メールアドレス
+      postal: 郵便番号
+      address: 住所
+      introduction: 自己紹介
+      edit: 編集
+      top: トップページ
+      userid: ユーザーID
+    index:
+      top: トップページ
+      user_list: ユーザー一覧
+      details: 詳細
+  layouts:
+    application:
+      user_list: ユーザー一覧
+      logout: ログアウト

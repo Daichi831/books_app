@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get '/mypage' => 'users#mypage'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   scope '(:locale)' do
     resources :books
+    resources :users, only: %i[index edit update destroy]
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'books#index'
 end

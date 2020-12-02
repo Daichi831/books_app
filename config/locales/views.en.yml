@@ -1,0 +1,11 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+en:
+  users:
+    show:
+      mypage: Mypage
+      userpage: userpage
+      username: username
+      email: email
+      postal: postal
+      address: address
+      introduction: introduction
