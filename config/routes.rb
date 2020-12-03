@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/mypage' => 'users#mypage'
-  get '/auth/:provider/callback' => 'sessions#create'
+  root to: 'books#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   scope '(:locale)' do
     resources :books
-    resources :users, only: %i[index edit update destroy]
+    resources :users
   end
-  root to: 'books#index'
+  get '/mypage' => 'users#mypage'
+  get '/auth/:provider/callback' => 'sessions#create'
 end
