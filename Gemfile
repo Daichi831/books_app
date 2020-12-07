@@ -64,3 +64,4 @@ gem 'kaminari'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'dotenv-rails'
