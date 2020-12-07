@@ -14,3 +14,9 @@ AsciiComments:
 # モジュール名::クラス名の定義を許可
 ClassAndModuleChildren:
   Enable: false
+
+Metrics/AbcSize:
+  Max: 30
+
+Layout/LineLength:
+  Max: 150
