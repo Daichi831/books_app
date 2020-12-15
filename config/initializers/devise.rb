@@ -15,5 +15,5 @@ Devise.setup do |config|
   config.scoped_views = true
   config.sign_out_via = :delete
 
-  config.omniauth :github, ENV['KEY'], ENV['SECRET']
+  config.omniauth :github, ENV['GITHUB_API_KEY'], ENV['GITHUB_API_SECRET']
 end
