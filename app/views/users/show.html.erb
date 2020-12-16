@@ -3,7 +3,7 @@
 <% else %>
   <h1><%= t('.userpage') %></h1>
 <% end %>
-<p><%= image_tag(@user.avatar, width: 100, height: 100) if @user.avatar.attached? %></p>
+<p><%= image_tag(@user.avatar, class: 'mypage_icon') if @user.avatar.attached? %></p>
 <p><%= t('.userid') %>:<%= @user.id %></p>
 <p><%= t('.username') %>：<%= @user.username %></p>
 
