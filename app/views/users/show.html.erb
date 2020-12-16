@@ -6,6 +6,7 @@
 <p><%= image_tag(@user.avatar, class: 'mypage_icon') if @user.avatar.attached? %></p>
 <p><%= t('.userid') %>:<%= @user.id %></p>
 <p><%= t('.username') %>：<%= @user.username %></p>
+<p><%= t('.introduction') %>：<%= @user.profile %></p>
 
 <% if user_signed_in? && @user == current_user %>
   <p><%= t('.email') %>：<%= @user.email %></p>
