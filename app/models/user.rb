@@ -7,9 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
   has_many :books, dependent: :destroy
 
-  validates :uid, uniqueness: true
-  validates :provider, uniqueness: true
-  
+  validates :uid, uniqueness: { scope: :provider }
+
   def self.find_for_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)
 

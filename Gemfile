@@ -40,12 +40,10 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rubocop', require: false
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
+  gem 'rubocop-fjord', require: false
+  gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop-fjord', require: false
 end
 
 group :test do
