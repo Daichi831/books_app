@@ -40,9 +40,8 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails'
+  gem 'rubocop-fjord', require: false
+  gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -60,5 +59,8 @@ gem 'awesome_print'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
+gem 'dotenv-rails'
 gem 'kaminari'
+gem 'omniauth'
+gem 'omniauth-github'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

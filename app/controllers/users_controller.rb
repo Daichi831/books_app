@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def show;end
+  def show; end
 
   def edit
     if @user == current_user
