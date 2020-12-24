@@ -8,7 +8,18 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_one_attached :avatar
 
-  validates :uid, uniqueness: { scope: :provider }
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+
+  has_many :passive_relationships, class_name: "Relationship",
+                                  foreign_key: "followed_id",
+                                  dependent: :destroy
+                                   
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
+
+  validates :uid, uniqueness: { scope: :provider }, allow_nil: true
 
   def self.find_for_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)
@@ -25,5 +36,17 @@ class User < ApplicationRecord
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
+  end
+  # ユーザーをフォローする
+  def follow(other_user)
+    following << other_user
+  end
+  # ユーザーのフォローを解除する
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+  # 現在フォローしているか確認する
+  def following?(other_user)
+    following.include?(other_user)
   end
 end
