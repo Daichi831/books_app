@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     resources :users
   end
   get '/mypage' => 'users#mypage'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 end
