@@ -1,8 +1,8 @@
 <% @followers.each do |user| %>
   <table>
     <tr>
-      <td><%= user.name %></td>
-      <td><%= linl_to "ユーザープロフィール", user_path(user) %></td>
+      <td><%= user.username %></td>
+      <td><%= link_to "ユーザープロフィール", user_path(user) %></td>
     </td>
   </table>
 <% end %>

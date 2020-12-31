@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show edit update following followers]
 
   def index
     @users = User.order(:created_at, :id).page(params[:page])
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def followers
     @followers = @user.followers
   end
-  
+
   def edit
     if @user == current_user
       redirect_to edit_user_registration_path(current_user)
