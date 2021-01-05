@@ -4,6 +4,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= image_tag(user.avatar, class: 'list_icon') if user.avatar.attached? %></td>
         <td><%= user.username %></td>
         <td><%= link_to t('.details'), user %></td>
       </tr>
