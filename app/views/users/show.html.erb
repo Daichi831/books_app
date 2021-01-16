@@ -4,6 +4,23 @@
   <h1><%= t('.userpage') %></h1>
 <% end %>
 <p><%= image_tag(@user.avatar, class: 'mypage_icon') if @user.avatar.attached? %></p>
+
+<% unless @user == current_user %>
+  <% if current_user.followees?(@user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+<% end %>
+
+  <a href="<%= followees_user_path(@user) %>">
+    <%= @user.followees.count %>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <%= @user.followers.count %>
+    followers
+  </a>
 <p><%= t('.userid') %>:<%= @user.id %></p>
 <p><%= t('.username') %>：<%= @user.username %></p>
 <p><%= t('.introduction') %>：<%= @user.profile %></p>
@@ -12,7 +29,6 @@
   <p><%= t('.email') %>：<%= @user.email %></p>
   <p><%= t('.postal') %>：<%= @user.postal %></p>
   <p><%= t('.address') %>：<%= @user.address %></p>
-  <p><%= t('.introduction') %>：<%= @user.profile %></p>
   <%= link_to t('.edit'), edit_user_registration_path(current_user) %>
 <% end %>
 

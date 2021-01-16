@@ -8,4 +8,10 @@ Rails.application.routes.draw do
     resources :users
   end
   get '/mypage' => 'users#mypage'
+  resources :users do
+    member do
+      get :followees, :followers
+    end
+  end
+  resources :freindships, only: %i[create destroy]
 end

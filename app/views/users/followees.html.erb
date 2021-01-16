@@ -1,0 +1,8 @@
+<% @followees.each do |user| %>
+  <table>
+    <tr>
+      <td><%= image_tag(user.avatar, class: 'mypage_icon') %></td>
+      <td><%= link_to user.username, user_path(user) %></td>
+    </td>
+  </table>
+<% end %>
