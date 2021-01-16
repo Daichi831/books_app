@@ -13,5 +13,5 @@ Rails.application.routes.draw do
       get :followees, :followers
     end
   end
-  resources :relationships, only: %i[create destroy]
+  resources :freindships, only: %i[create destroy]
 end
