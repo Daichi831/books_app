@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/mypage' => 'users#mypage'
   resources :users do
     member do
-      get :following, :followers
+      get :followees, :followers
     end
   end
   resources :relationships, only: %i[create destroy]

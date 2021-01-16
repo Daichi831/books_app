@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update following followers]
+  before_action :set_user, only: %i[show edit update followees followers]
 
   def index
     @users = User.order(:created_at, :id).page(params[:page])
@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def following
-    @following = @user.following
+  def followees
+    @followees = @user.followees
   end
 
   def followers

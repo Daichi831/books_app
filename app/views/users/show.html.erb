@@ -6,16 +6,15 @@
 <p><%= image_tag(@user.avatar, class: 'mypage_icon') if @user.avatar.attached? %></p>
 
 <% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
+  <% if current_user.followees?(@user) %>
     <%= render 'unfollow' %>
   <% else %>
     <%= render 'follow' %>
   <% end %>
 <% end %>
 
-<% @user ||= current_user %>
-  <a href="<%= following_user_path(@user) %>">
-    <%= @user.following.count %>
+  <a href="<%= followees_user_path(@user) %>">
+    <%= @user.followees.count %>
     following
   </a>
   <a href="<%= followers_user_path(@user) %>">
